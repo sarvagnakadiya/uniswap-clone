@@ -1,4 +1,4 @@
-import { Token } from '@uniswap/sdk'
+import { Token } from 'sdk-clone-uniswap-0xdab'
 import { transparentize } from 'polished'
 import React, { useCallback, useMemo, useState } from 'react'
 import styled from 'styled-components'

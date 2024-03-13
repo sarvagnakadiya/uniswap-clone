@@ -2574,17 +2574,6 @@
   resolved "https://registry.yarnpkg.com/@uniswap/lib/-/lib-1.1.1.tgz#0afd29601846c16e5d082866cbb24a9e0758e6bc"
   integrity sha512-2yK7sLpKIT91TiS5sewHtOa7YuM8IuBXVl4GZv2jZFys4D2sY7K5vZh6MqD25TPA95Od+0YzCVq6cTF2IKrOmg==
 
-"@uniswap/sdk@file:../v2-sdk":
-  version "3.0.2"
-  dependencies:
-    "@uniswap/v2-core" "^1.0.0"
-    big.js "^5.2.2"
-    decimal.js-light "^2.5.0"
-    jsbi "^3.1.1"
-    tiny-invariant "^1.1.0"
-    tiny-warning "^1.0.3"
-    toformat "^2.0.0"
-
 "@uniswap/token-lists@^1.0.0-beta.15":
   version "1.0.0-beta.15"
   resolved "https://registry.yarnpkg.com/@uniswap/token-lists/-/token-lists-1.0.0-beta.15.tgz#93d2e9b2b2d2cfb0ce7fb4d30fffb685efde4256"
@@ -13184,6 +13173,19 @@ scrypt-js@3.0.1, scrypt-js@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/scrypt-js/-/scrypt-js-3.0.1.tgz#d314a57c2aef69d1ad98a138a21fe9eafa9ee312"
   integrity sha512-cdwTTnqPu0Hyvf5in5asVdZocVDTNRmR7XEcJuIzMjJeSHybHl7vpB66AzwTaIg6CLSbtjcxc8fqcySfnTkccA==
+
+sdk-clone-uniswap-0xdab@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/sdk-clone-uniswap-0xdab/-/sdk-clone-uniswap-0xdab-0.0.1.tgz#9e6ce63f24a4ee5c6e9fc22dd24ff91aa98bcf55"
+  integrity sha512-tRS+NBMOGHOchsdotDKXSPAsm8WmssaolHpqvjNIR+ohAoRHlRZDt02sUwrNTRC2TxHCXNf9DPpkBgq7ZRkiSw==
+  dependencies:
+    "@uniswap/v2-core" "^1.0.0"
+    big.js "^5.2.2"
+    decimal.js-light "^2.5.0"
+    jsbi "^3.1.1"
+    tiny-invariant "^1.1.0"
+    tiny-warning "^1.0.3"
+    toformat "^2.0.0"
 
 secp256k1@3.8.0, secp256k1@^3.0.1:
   version "3.8.0"
