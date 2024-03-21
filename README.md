@@ -37,21 +37,21 @@ UdonSwap is an experimental project and comes with no warranties or guarantees. 
 ## Contract Graph
 
 ```mermaid
-graph LR
-    removeLiquidity -->|Calls| IUniswapV2Pair.burn
-    removeLiquidityETH -->|Calls| removeLiquidity
-    removeLiquidityETH -->|Calls| TransferHelper.safeTransfer
-    removeLiquidityETH -->|Calls| IWETH.withdraw
-    removeLiquidityETH -->|Calls| TransferHelper.safeTransferETH
-    removeLiquidityWithPermit -->|Calls| IUniswapV2Pair.permit
-    removeLiquidityWithPermit -->|Calls| removeLiquidity
-    removeLiquidityETHWithPermit -->|Calls| IUniswapV2Pair.permit
-    removeLiquidityETHWithPermit -->|Calls| removeLiquidityETH
-    removeLiquidityETHSupportingFeeOnTransferTokens -->|Calls| removeLiquidity
-    removeLiquidityETHSupportingFeeOnTransferTokens -->|Calls| TransferHelper.safeTransfer
-    removeLiquidityETHSupportingFeeOnTransferTokens -->|Calls| IWETH.withdraw
-    removeLiquidityETHSupportingFeeOnTransferTokens -->|Calls| TransferHelper.safeTransferETH
-    removeLiquidityETHWithPermitSupportingFeeOnTransferTokens -->|Calls| IUniswapV2Pair.permit
-    removeLiquidityETHWithPermitSupportingFeeOnTransferTokens -->|Calls| removeLiquidityETHSupportingFeeOnTransferTokens
+graph TD;
+    removeLiquidityETHWithPermitSupportingFeeOnTransferTokens --> removeLiquidityETHSupportingFeeOnTransferTokens;
+    removeLiquidityETHSupportingFeeOnTransferTokens --> removeLiquidity;
+    removeLiquidityETH --> removeLiquidity;
+    removeLiquidity --> UniswapV2Library.pairFor;
+    removeLiquidity --> IUniswapV2Pair.transferFrom;
+    removeLiquidity --> IUniswapV2Pair.burn;
+    removeLiquidity --> UniswapV2Library.sortTokens;
+    removeLiquidity --> TransferHelper.safeTransfer;
+    removeLiquidity --> IWETH.withdraw;
+    removeLiquidity --> TransferHelper.safeTransferETH;
+    removeLiquidityWithPermit --> removeLiquidity;
+    removeLiquidityWithPermit --> IUniswapV2Pair.permit;
+    removeLiquidityETHWithPermit --> removeLiquidityETH;
+    removeLiquidityETHWithPermit --> IUniswapV2Pair.permit;
+
 ```
 
