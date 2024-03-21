@@ -37,11 +37,21 @@ UdonSwap is an experimental project and comes with no warranties or guarantees. 
 ## Contract Graph
 
 ```mermaid
-graph TD;
-    CoreContracts --> PairContract;
-    CoreContracts --> FactoryContract;
-    CoreContracts --> ERC20Contract;
-    PeripheryContracts --> UniswapV2Router01;
-    PeripheryContracts --> UniswapV2Router02;
+graph LR
+    removeLiquidity -->|Calls| IUniswapV2Pair.burn
+    removeLiquidityETH -->|Calls| removeLiquidity
+    removeLiquidityETH -->|Calls| TransferHelper.safeTransfer
+    removeLiquidityETH -->|Calls| IWETH.withdraw
+    removeLiquidityETH -->|Calls| TransferHelper.safeTransferETH
+    removeLiquidityWithPermit -->|Calls| IUniswapV2Pair.permit
+    removeLiquidityWithPermit -->|Calls| removeLiquidity
+    removeLiquidityETHWithPermit -->|Calls| IUniswapV2Pair.permit
+    removeLiquidityETHWithPermit -->|Calls| removeLiquidityETH
+    removeLiquidityETHSupportingFeeOnTransferTokens -->|Calls| removeLiquidity
+    removeLiquidityETHSupportingFeeOnTransferTokens -->|Calls| TransferHelper.safeTransfer
+    removeLiquidityETHSupportingFeeOnTransferTokens -->|Calls| IWETH.withdraw
+    removeLiquidityETHSupportingFeeOnTransferTokens -->|Calls| TransferHelper.safeTransferETH
+    removeLiquidityETHWithPermitSupportingFeeOnTransferTokens -->|Calls| IUniswapV2Pair.permit
+    removeLiquidityETHWithPermitSupportingFeeOnTransferTokens -->|Calls| removeLiquidityETHSupportingFeeOnTransferTokens
 ```
 
