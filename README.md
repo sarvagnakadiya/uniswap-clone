@@ -38,20 +38,20 @@ UdonSwap is an experimental project and comes with no warranties or guarantees. 
 
 ```mermaid
 graph TD;
-    removeLiquidityETHWithPermitSupportingFeeOnTransferTokens --> removeLiquidityETHSupportingFeeOnTransferTokens;
-    removeLiquidityETHSupportingFeeOnTransferTokens --> removeLiquidity;
-    removeLiquidityETH --> removeLiquidity;
-    removeLiquidity --> UniswapV2Library.pairFor;
-    removeLiquidity --> IUniswapV2Pair.transferFrom;
-    removeLiquidity --> IUniswapV2Pair.burn;
-    removeLiquidity --> UniswapV2Library.sortTokens;
-    removeLiquidity --> TransferHelper.safeTransfer;
-    removeLiquidity --> IWETH.withdraw;
-    removeLiquidity --> TransferHelper.safeTransferETH;
-    removeLiquidityWithPermit --> removeLiquidity;
-    removeLiquidityWithPermit --> IUniswapV2Pair.permit;
-    removeLiquidityETHWithPermit --> removeLiquidityETH;
-    removeLiquidityETHWithPermit --> IUniswapV2Pair.permit;
+    removeLiquidityETHWithPermitSupportingFeeOnTransferTokens((removeLiquidityETHWithPermitSupportingFeeOnTransferTokens)) -->|Called on user request| removeLiquidityETHSupportingFeeOnTransferTokens;
+    removeLiquidityETHSupportingFeeOnTransferTokens -->|If liquidity needs to be removed| removeLiquidity;
+    removeLiquidity -->|Retrieve pair address| UniswapV2Library.pairFor;
+    removeLiquidity -->|Transfer liquidity tokens| IUniswapV2Pair.transferFrom;
+    removeLiquidity -->|Burn liquidity tokens| IUniswapV2Pair.burn;
+    removeLiquidity -->|Sort tokens| UniswapV2Library.sortTokens;
+    removeLiquidity -->|Transfer tokens| TransferHelper.safeTransfer;
+    removeLiquidity -->|Withdraw ETH| IWETH.withdraw;
+    removeLiquidity -->|Transfer ETH| TransferHelper.safeTransferETH;
+    removeLiquidityWithPermit -->|On permit approval| removeLiquidity;
+    removeLiquidityWithPermit -->|Permit signature verification| IUniswapV2Pair.permit;
+    removeLiquidityETHWithPermit -->|On permit approval| removeLiquidityETH;
+    removeLiquidityETHWithPermit -->|Permit signature verification| IUniswapV2Pair.permit;
+
 
 ```
 
